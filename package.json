@@ -1,0 +1,13 @@
+{
+    "name": "pack"
+  , "version": "0.0.1"
+  , "private": true
+  , "author": "Alex Kojin"
+  , "email": "alexkojin@gmail.com"
+  , "preferGlobal": "true"
+  , "keywords": ["javascript", "package", "minimize"]
+  , "bin": "./bin/pack.js"
+  , "dependencies": {
+      "uglify-js": "1.3.2"
+    }
+}
