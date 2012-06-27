@@ -1,7 +1,6 @@
 {
-    "name": "pack"
+    "name": "pack-assets"
   , "version": "0.0.1"
-  , "private": true
   , "author": "Alex Kojin"
   , "email": "alexkojin@gmail.com"
   , "preferGlobal": "true"
@@ -10,7 +9,7 @@
   , "repository" : {
         "type": "git",
         "url": "https://github.com/alexkojin/pack-assets.git"
-    },
+    }
   , "dependencies": {
       "uglify-js": "1.3.2"
     }
