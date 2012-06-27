@@ -1,11 +1,11 @@
 {
     "name": "pack-assets"
-  , "version": "0.0.1"
+  , "version": "0.1.0"
   , "author": "Alex Kojin"
   , "email": "alexkojin@gmail.com"
   , "preferGlobal": "true"
   , "keywords": ["javascript", "package", "minimize"]
-  , "bin": "./bin/pack.js"
+  , "bin": {"pack": "./bin/pack.js"}
   , "repository" : {
         "type": "git",
         "url": "https://github.com/alexkojin/pack-assets.git"
