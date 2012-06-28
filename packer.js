@@ -1,5 +1,3 @@
-// Run: node packer.js assets.json
-
 var fs = require("fs"),
     path = require('path'),
     exec = require('child_process').exec,
@@ -19,7 +17,8 @@ var Packer = function(configPath){
   workingDir = path.dirname(configPath);
   // console.log(config);
 
-  config.options = config.options || [];
+  config.js_options = config.js_options || [];
+  config.css_options = config.css_options || [];
 
   // Make output dir
   if(config.outputDir) {
@@ -40,28 +39,10 @@ var Packer = function(configPath){
       packages.push(def);
     });
   }
-
-  // console.log(packages);
   
   // Prepare command for uglify
 
-  this.compress = function(){
-    packages.forEach(function(package){
-      self.compressPackage(package);
-    });
-  };
-
-  this.compressPackage = function(package) {
-    var outputFile = outputDir + '/' + package.name + "-" + package.version + ".js";
-    var files = _.map(package.js, function(js){
-                  return path.join(workingDir, package.sourceDir, js);
-                } ).join(' ');
-
-    var command = 'cat '+ files +' | "' + __dirname  + '/node_modules/uglify-js/bin/uglifyjs" --output "' +
-              outputFile + '" --no-copyright ' + package.options.join(' ');
-    // console.log(command);
-
-    // Execute
+  this.run = function(command, outputFile) {
     exec(command, function (err, stdout, stderr) {
       if(err) console.log(err);
       if(stdout) console.log(stdout);
@@ -75,6 +56,43 @@ var Packer = function(configPath){
           console.log(blue,'OK', reset, outputFile, "" + parseInt(stat.size / 1024) + 'KB')  
       });
     });
+  };
+
+  this.compress = function(){
+    packages.forEach(function(package){
+      self.compressJSPackage(package);
+      self.compressCSSPackage(package);
+    });
+  };
+
+  this.compressJSPackage = function(package) {
+    if(!package.js) return false;
+
+    var outputFile = outputDir + '/' + package.name + "-" + package.version + ".js";
+    var files = _.map(package.js, function(js){
+                  return path.join(workingDir, package.sourceDir, js);
+                } ).join(' ');
+
+    var command = 'cat '+ files +' | "' +
+                  __dirname  + '/node_modules/uglify-js/bin/uglifyjs" --output "' +
+                  outputFile + '" --no-copyright ' + package.js_options.join(' ');
+
+    this.run(command, outputFile);
+  };
+
+  this.compressCSSPackage = function(package) {
+    if(!package.css) return false;
+
+    var outputFile = outputDir + '/' + package.name + "-" + package.version + ".css";
+    var files = _.map(package.css, function(css){
+                  return path.join(workingDir, package.sourceDir, css);
+                } ).join(' ');
+
+    var command = 'cat '+ files +' | "' + 
+                  __dirname  + '/node_modules/clean-css/bin/cleancss" -o "' +
+                  outputFile + '" ' + package.css_options.join(' ');
+
+    this.run(command, outputFile);
   };
 };
 

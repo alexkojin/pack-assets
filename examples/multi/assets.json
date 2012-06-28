@@ -5,12 +5,14 @@
   "packages": [
     {
       "name": "core",
-      "js": ["core/underscore.js", "core/backbone.js"]
+      "js": ["core/underscore.js", "core/backbone.js"],
+      "css": ["core/reset.css", "core/screen.css"]
     },
     {
       "name": "plugin",
       "sourceDir": "plugin",
-      "js": ["jquery.isotope.js", "jquery.mousewheel.js"]
+      "js": ["jquery.isotope.js", "jquery.mousewheel.js"],
+      "css": ["soulmate.css", "ajaxful_rating.css", "facebox.css"]
     }
   ],
 

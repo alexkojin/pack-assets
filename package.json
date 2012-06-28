@@ -1,17 +1,18 @@
 {
     "name": "pack-assets"
-  , "version": "0.1.3"
+  , "version": "0.1.4"
   , "author": "Alex Kojin"
   , "email": "alexkojin@gmail.com"
   , "preferGlobal": "true"
   , "keywords": ["javascript", "package", "minimize"]
   , "bin": {"pack": "./bin/pack.js"}
   , "repository" : {
-        "type": "git",
-        "url": "https://github.com/alexkojin/pack-assets.git"
+      "type": "git",
+      "url": "https://github.com/alexkojin/pack-assets.git"
     }
   , "dependencies": {
+      "underscore": "1.3.3",
       "uglify-js": "1.3.2",
-      "underscore": "1.3.3"
+      "clean-css": "0.4.1"
     }
 }
