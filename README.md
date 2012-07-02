@@ -6,7 +6,7 @@ Pack your javascripts or css files into one file.
     npm install pack-assets -g
 
 ### Usage
-Create configuration file assets.yml. 
+Create configuration file assets.json. 
 
 	{
   	  "name": "multi",
@@ -33,7 +33,7 @@ To build assets type:
     pack
 or
 
-    pack your-config.yml
+    pack your-config.json
     
 In this example will be cretead three js and three css packages in builds folder.
 
