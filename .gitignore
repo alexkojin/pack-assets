@@ -1,3 +1,4 @@
 node_modules
 examples/simple/builds
 examples/multi/builds
+.packed_assets

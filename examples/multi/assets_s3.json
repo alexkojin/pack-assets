@@ -2,6 +2,11 @@
   "name": "multi",
   "version": "0.1.0",
   "path": "builds/:name-:version",
+  "s3": {
+    "key": "xxx",
+    "secret": "xxx",
+    "bucket": "cdn-site"
+  },
   "packages": [
     {
       "name": "core",
@@ -14,7 +19,5 @@
       "js": ["jquery.isotope.js", "jquery.mousewheel.js"],
       "css": ["soulmate.css", "ajaxful_rating.css", "facebox.css"]
     }
-  ],
-
-  "js": ["core/underscore.js", "core/backbone.js", "plugin/jquery.isotope.js", "plugin/jquery.mousewheel.js"]
+  ]
 }

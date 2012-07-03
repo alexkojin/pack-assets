@@ -1,7 +1,7 @@
 {
   "name": "simple",
   "version": "0.5",
-  "outputDir": "builds",
+  "path": "builds/:name-:version",
   "js": [
     "date.format.js",
     "jade.js"
