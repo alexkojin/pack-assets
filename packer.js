@@ -99,7 +99,7 @@ var Packer = function(configPath){
 
     if(dir) {
       dir = path.join(workingDir, dir);
-      if(!path.existsSync(dir)) mkdirp.sync(dir);
+      if(!fs.existsSync(dir)) mkdirp.sync(dir);
     }
 
     var realPath = package.path;
